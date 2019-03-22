@@ -19,9 +19,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, ENCRYPTED ? "notes-db-encrypted" : "notes-db");
-        Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
-        daoSession = new DaoMaster(db).newSession();
+        MySQLiteOpenHelper helper = new MySQLiteOpenHelper(this, "test.db", null);
+        daoSession = new DaoMaster(helper.getWritableDatabase()).newSession();
+//
+//        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, ENCRYPTED ? "notes-db-encrypted" : "notes-db");
+//        Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
+//        daoSession = new DaoMaster(db).newSession();
     }
 
     public DaoSession getDaoSession() {

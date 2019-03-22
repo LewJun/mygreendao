@@ -22,11 +22,12 @@ public class Note {
     @NotNull
     private String text;
     private String comment;
+//    private String desc;
     private java.util.Date date;
 
     @Generated(hash = 1028896452)
     public Note(Long id, @NotNull String text, String comment,
-                java.util.Date date) {
+            java.util.Date date) {
         this.id = id;
         this.text = text;
         this.comment = comment;
@@ -78,5 +79,6 @@ public class Note {
                 ", date=" + date +
                 '}';
     }
+
 }
 

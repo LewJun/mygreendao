@@ -17,9 +17,17 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+//#########################################
+    // 每次修改了数据库后需要叠加版本
+    greendaoSchemaVersion = 2
+//#########################################
 }
